@@ -1,9 +1,8 @@
-MESSAGE_TYPE = {
-  INFO: "info",
-  ACTION: "action"
+const MESSAGE_TYPE = {
+  INFO: 'info',
+  ACTION: 'action'
 }
-
-CO_URL_MAP = {
+const CO_URL_MAP = {
   andy: 'https://www.youtube.com/watch?v=XGjmcUhdQXE', // Todo, listen to ALL, maybe start at a different time
   hachi:'https://www.youtube.com/watch?v=Q7jTW7Ks9Yw',
   jake: 'https://www.youtube.com/watch?v=T8lEWH5WBfY', // Todo, this one's not done by the same channel
@@ -35,9 +34,8 @@ CO_URL_MAP = {
   tag: 'https://www.youtube.com/watch?v=NwflCwBRT3w'
 }
 
-let coToThemeMap = {
-  andy: "https://www.youtube.com/watch?v=JdRuVBhZuGY"
-}
+const url = 'https://d14ieuh7s5leqe.cloudfront.net'
+
 
 // chrome.runtime.onInstalled.addListener((reason) => {
 //   if (reason === chrome.runtime.OnInstalledReason.INSTALL) {
@@ -51,10 +49,7 @@ chrome.runtime.onMessage.addListener((message) => {
   if (message.type === MESSAGE_TYPE.INFO) {
     console.log(message.body);
   } else if (message.type === MESSAGE_TYPE.ACTION) {
-    console.log("received request to play track for:", message.body)
-    chrome.tabs.create({
-      active: false,
-      url: CO_URL_MAP[message.body]
-    })
+    console.log('received request to play track for:', message.body)
+
   }
 })
