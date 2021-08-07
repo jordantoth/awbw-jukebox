@@ -1,0 +1,1 @@
+(()=>{const o="info",e="action",n="https://d14ieuh7s5leqe.cloudfront.net";chrome.runtime.onMessage.addListener((t=>{t.type===o?console.log(t.body):t.type===e&&(console.log("received request to play track for:",t.body),function(){console.log("playing song");const o=`${n}/ds/andy.mp3`;console.log(o),new Audio(o).play()}())}))})();

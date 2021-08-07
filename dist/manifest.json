@@ -5,8 +5,10 @@
     "manifest_version": 3,
     "permissions": ["storage", "activeTab", "scripting"],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "main.js",
+        "type": "module"
     },
+    "minimum_chrome_version": "92",
     "action": {
       "default_icon": {
           "16": "/images/get_started16.png",
@@ -18,7 +20,7 @@
     "content_scripts": [
         {
             "matches": ["https://awbw.amarriner.com/*"],
-            "js": ["playOnLoad.js"]
+            "js": ["songSelector.js"]
         }
     ],
     "icons": {
